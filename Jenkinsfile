@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    environment {
-        // Set any environment variables you need
-    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -11,19 +9,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                script {
-                    def buildDir = 'build'
-                    sh "mkdir -p $buildDir && cd $buildDir && cmake .. && make"
-                }
-            }
-        }
-        stage('Test') {
-            steps {
-                script {
-                    def buildDir = 'build'
-                    sh "cd $buildDir && ctest"
+                sh 'mkdir -p build'
+                dir('build') {
+                    sh 'cmake ..'
+                    sh 'make'
                 }
             }
         }
     }
 }
+

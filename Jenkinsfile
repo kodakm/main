@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "mkdir -p ${SOURCE_CODE_PATH}/build"
                 dir("${SOURCE_CODE_PATH}/build") {
-                    sh "cd ${SOURCE_CODE_PATH} && cmake ."
+                    sh "cd ${SOURCE_CODE_PATH}/build && cmake ."
                     sh "cd ${SOURCE_CODE_PATH}/build && make"
                 }
             }

@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        SOURCE_CODE_PATH = '/home/azureuser/mahesh/main'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -9,10 +13,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mkdir -p build'
-                dir('build') {
-                    sh 'cmake ..'
-                    sh 'make'
+                sh "mkdir -p ${SOURCE_CODE_PATH}/build"
+                dir("${SOURCE_CODE_PATH}/build") {
+                    sh "cd ${SOURCE_CODE_PATH} && cmake ."
+                    sh "cd ${SOURCE_CODE_PATH}/build && make"
                 }
             }
         }

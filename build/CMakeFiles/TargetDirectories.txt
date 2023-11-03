@@ -1,0 +1,3 @@
+/home/mahesh/MyCppProject/build/CMakeFiles/MyCppProject.dir
+/home/mahesh/MyCppProject/build/CMakeFiles/edit_cache.dir
+/home/mahesh/MyCppProject/build/CMakeFiles/rebuild_cache.dir
